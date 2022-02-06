@@ -63,9 +63,18 @@ def not_bad(s):
 # e.g. 'abcde', the front half is 'abc', the back half 'de'.
 # Given 2 strings, a and b, return a string of the form
 #  a-front + b-front + a-back + b-back
-def front_back(a, b):
+def split(s):
+    half, rem = divmod(len(s), 2)
+    if rem:
+        half += 1
+    return s[:half], s[half:]
 
-    return
+def front_back(a, b):
+    front_a, back_a = split(a)
+    front_b, back_b = split(b)
+    return front_a + front_b + back_a + back_b
+
+
 
 
 # Simple provided test() function used in main() to print
